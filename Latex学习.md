@@ -115,3 +115,15 @@ a=b+c
 ![image-20240318094819830](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240318094819830.png)
 
 ![image-20240318094801232](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240318094801232.png)
+
+
+
+测试图片资源2
+
+![资源](https://github.com/ZhangYuQiao326/study_nodes_pictures/blob/main/image.png?raw=true)
+
+测试type+picgo+github
+
+![image-20240318103508498](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318103508498.png)
+
+ss
