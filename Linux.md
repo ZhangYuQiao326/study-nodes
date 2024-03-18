@@ -568,6 +568,8 @@ conda config --remove-key channels
 
 # 6 git命令
 
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318124556650.png" alt="image-20240318124556650" style="zoom:50%;" />
+
 ```shell
 git clone ...
 // 查看远程
@@ -579,7 +581,48 @@ git status
 // 将所有的修改操作保存到本地缓存区
 git add.
 // 将缓存区内操作同步到本地仓库
-git commit -a
 git commit -m "message注释信息"
+// 本地仓库推送远程仓库
+git push origin main
+// 查看修改日志
+git log
 ```
 
+* 各阶段回退操作
+
+![image-20240318130118113](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318130118113.png)
+
+* 分支操作
+
+```shell
+// 查看本地分支
+git branch
+// 查看远程分支
+git branch -r  // remote远程
+// 查看本地库与远程库的追踪关系
+git branch -vv
+
+// 创建分支
+git branch xx
+// 设置分支追踪远程库
+git branch -u origin/dev
+// 创建分支，追踪远程分支
+git checkout -b dev origal/dev
+// 切换分支
+git checkout xx
+// 创建并切换分支
+git checkout -b 分支2  // (branch)
+
+// 合并分支仓库和本地仓库
+git merge xx2
+// 删除分支
+git branch -d xx (未合并删除失败)
+// 强制删除
+git branch -D xx
+```
+
+* 企业级使用git流程
+
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318142846487.png" alt="image-20240318142846487" style="zoom:67%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318142922996.png" alt="image-20240318142922996" style="zoom:67%;" />
