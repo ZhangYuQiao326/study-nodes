@@ -425,7 +425,9 @@ swap(arr)//arr为数组首地址
 
 ### 5.4 冒泡排序
 
-![image-20230320204155781](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230320204155781.png)
+![image-20230320204155781](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230320204155781.png)
+
+
 
 ```cpp
 #include <iostream>
@@ -1006,9 +1008,9 @@ int main()
 }
 ```
 
+![image-20230321205618122](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230321205618122.png)
 
 
-![image-20230321205618122](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230321205618122.png)
 
 ### 8.6 结构体数组作为函数参数
 
@@ -1320,7 +1322,9 @@ int main() {
 
 总之，引用是C++中的一种强大的工具，它提供了一种更灵活、更高效的方式来处理数据，同时提高了代码的可读性和可维护性。引用的本质是为了提供一种更接近原始数据的访问方式，而不需要进行不必要的数据复制。
 
-![image-20231205100101300](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231205100101300.png)
+![image-20231205100101300](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231205100101300.png)
+
+
 
 ### 2.2 引用做函数参数
 
@@ -1343,7 +1347,7 @@ void main(){
 
 ### 2.3 引用做函数返回值
 
-![image-20231205102924391](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231205102924391.png)
+![image-20231205102924391](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231205102924391.png)
 
 [static具体用法](#static1)
 
@@ -1499,7 +1503,7 @@ fun(10); //void fun(const int &a){};
 
 * 五步操作
 * 文件打开方式
-* ![image-20230404223629526](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230404223629526.png)
+* ![image-20230404223629526](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230404223629526.png)
 
 ```cpp
 #include <iostream>
@@ -1985,7 +1989,7 @@ int main() {
 
 
 
-![image-20230404123555238](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230404123555238.png)
+![image-20230404123555238](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230404123555238.png)
 
 
 
@@ -2537,7 +2541,7 @@ class cpp: public Base{
 
 ### 4.3.1 继承方式
 
-![image-20230404100647142](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230404100647142.png)
+![image-20230404100647142](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230404100647142.png)
 
 * 注意：对于父类的私有变量，子类全部继承，只是隐藏起来不可访问
 
@@ -2745,7 +2749,7 @@ int main() {
 
 ### 4.3.5 菱形继承
 
-![image-20230404111427114](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230404111427114.png)
+![image-20230404111427114](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230404111427114.png)
 
 1.     羊继承了动物的数据，驼同样继承了动物的数据，当草泥马使用数据时，就会产生二义性。
 2.     草泥马继承自动物的数据继承了两份，其实我们应该清楚，这份数据我们只需要一份就可以。
@@ -2820,7 +2824,7 @@ int main() {
 
 虚继承：继承的是一个虚拟基类指针vbptr，通过偏移量访问虚拟基类表，表内存放虚拟基类的成员变量，只有一份，修改sheep.age 或 tuo.age 都会改变这个值，最终sheeptuo继承的是这个唯一的age。
 
-![image-20230404111312059](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230404111312059.png)
+![image-20230404111312059](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230404111312059.png)
 
 
 
@@ -3054,7 +3058,7 @@ Person(const Person& p) {
 // 浅拷贝问题：堆区的重复释放
 ```
 
-![image-20230401203117007](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230401203117007.png)
+![image-20230401203117007](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230401203117007.png)
 
 深拷贝，用户自定义拷贝函数，指向新的堆区，分开释放堆区
 
@@ -3078,7 +3082,7 @@ Person(const Person& p) {
 // 总结：如果属性有在堆区开辟的，一定要自己提供拷贝构造函数，防止浅拷贝带来的问题
 ```
 
-![image-20230401202532714](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230401202532714.png)
+![image-20230401202532714](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230401202532714.png)
 
   
 
@@ -3328,7 +3332,7 @@ class Person{
 
 ### 4.5.2 this指针
 
-![image-20230402135455639](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230402135455639.png)
+![image-20230402135455639](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230402135455639.png)
 
 ![image-20230402135715246](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230402135715246.png)
 
@@ -3377,7 +3381,7 @@ return 0;
 }
 ```
 
-![image-20230402201731425](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230402201731425.png)
+![image-20230402201731425](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230402201731425.png)
 
 
 
@@ -3550,7 +3554,7 @@ int main()
 
 ### 4.6.3 相同class的各个object互为友元
 
-![image-20230422123740987](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230422123740987.png)
+![image-20230422123740987](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230422123740987.png)
 
 * 相同class下的对象a,b,c
 * a可以访问c的私有变量
@@ -13044,33 +13048,33 @@ int main()
 
 ## 2 项目
 
-![image-20230403153908225](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230403153908225.png)
+![image-20230403153908225](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230403153908225.png)
 
 
 
- ![image-20230403153931615](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230403153931615.png)
+ ![image-20230403153931615](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230403153931615.png)
 
-![image-20230403153943416](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230403153943416.png)
+![image-20230403153943416](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230403153943416.png)
 
-![image-20230403154008973](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230403154008973.png)
+![image-20230403154008973](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230403154008973.png)
 
-![image-20230407180304687](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230407180304687.png)
+![image-20230407180304687](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230407180304687.png)
 
 
 
 # 七 侯捷 STL 泛型编程
 
-![image-20230413205924700](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230413205924700.png)
+![image-20230413205924700](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230413205924700.png)
 
 ## 1 泛型编程GP
 
 * OOP面向对象编程：将数据（属性）和方法（函数）存在一起
 * GP泛型编程： 将数据存储和操作函数分开，闭门造车
-* ![image-20230420205512078](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420205512078.png)
+* ![image-20230420205512078](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420205512078.png)
 
 ### 1.1 运算符重载
 
-![image-20230420205719789](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420205719789.png)
+![image-20230420205719789](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420205719789.png)
 
 * 容器内重写运算符的含义
 * 可以直接调用algorithm写好的函数
@@ -13082,11 +13086,11 @@ int main()
 因为，algorithm中的sort算法采用了 随机访问迭代器指针（顺序表指针），而list中的迭代器不支持随机访问，所以无法使用全局sort
 ```
 
-![image-20230420210257474](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420210257474.png)
+![image-20230420210257474](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420210257474.png)
 
 ## 2 iterator 迭代器
 
- ![image-20230413220717251](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230413220717251.png)
+ ![image-20230413220717251](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230413220717251.png)
 
 * 泛化指针，用来调用算法处理容器值
 
@@ -13112,40 +13116,42 @@ int main()
 
   5、reference
 
-![image-20230421170215590](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421170215590.png)
+![image-20230421170215590](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421170215590.png)
 
 ### 2.2 iterator_traits
 
 * 因为真正的指针不能回答问题，需要设置一个traits萃取机作为中间容器，代替其回答
 
-![image-20230421171833266](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421171833266.png)
+![image-20230421171833266](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421171833266.png)
 
 * traits采用==偏特化==的技术，用于分辨class 和 non-class iterator
 
-![image-20230421172023021](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421172023021.png)
+![image-20230421172023021](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421172023021.png)
 
-![image-20230421172158705](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421172158705.png)
+![image-20230421172158705](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421172158705.png)
 
 ### 2.4 构成
 
 * iterator由一堆typedef和一堆运算符重载构成
 
-![image-20230421182804555](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421182804555.png)
+![image-20230421182804555](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421182804555.png)
 
 ## 3 containers 容器
 
-![image-20230413223446135](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230413223446135.png)
+![image-20230413223446135](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230413223446135.png)
 
 <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421172825843.png" alt="image-20230421172825843" style="zoom: 150%;" />
 
 ### 3.1 array
 
-![image-20230420183518614](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420183518614.png)
+
+
+![image-20230420183518614](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420183518614.png)
 
 * 不能扩充
 * 只有三个typedf（value_tpye, pointer. iterator）
 
-![image-20230421185718816](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421185718816.png)
+![image-20230421185718816](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421185718816.png)
 
 ```cpp
 array<int,10>a;
@@ -13164,7 +13170,7 @@ a.data(); // 数组起始位置
 
 ### 3.2 vector
 
-![image-20230420183537137](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420183537137.png)
+![image-20230420183537137](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420183537137.png)
 
 * 连续存储
 * 空间的增长以2倍增长
@@ -13185,7 +13191,7 @@ a.data(); // 数组起始位置
 
 
 
-![image-20230421174923722](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421174923722.png)
+![image-20230421174923722](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421174923722.png)
 
 ```cpp
 // vector 由三个指针控制：start、finsh、end_of_storage
@@ -13225,7 +13231,7 @@ v.data();n
 
 ###  ___ vector_iterator
 
-![image-20230421180916473](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421180916473.png)
+![image-20230421180916473](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421180916473.png)
 
 ```cpp
 // vector_iterator是一个指针
@@ -13273,7 +13279,7 @@ for (auto &it :v)
 * 底层为map指针结构， 分段有序存储，宏观上为连续存储
 * 每次扩充多少？？？？
 
-![image-20230420183447375](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420183447375.png)
+![image-20230420183447375](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420183447375.png)
 
 ```cpp
 #include<deque>
@@ -13290,7 +13296,7 @@ d.max_size();
 
 ### 3.4 list
 
-![image-20230420184208178](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420184208178.png)
+![image-20230420184208178](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420184208178.png)
 
 * 每次扩充1个节点
 * 动态分配内存
@@ -13303,7 +13309,7 @@ l.front();
 l.back();
 ```
 
-![image-20230421154030427](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421154030427.png)
+![image-20230421154030427](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421154030427.png)
 
 * 含有头节点node
 * l.begin() 为头节点的next值，指向头节点下第一个节点
@@ -13313,7 +13319,7 @@ l.back();
 
 ### ___ list_iterator
 
-![image-20230421152831891](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421152831891.png)
+![image-20230421152831891](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421152831891.png)
 
 
 
@@ -13329,11 +13335,11 @@ l.back();
 
 * 每次扩充1个节点
 * 有自己的sort
-* ![image-20230421190312771](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230421190312771.png)
+* ![image-20230421190312771](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230421190312771.png)
 
 ### 3.6 mutiset
 
-![image-20230420195204115](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420195204115.png)
+![image-20230420195204115](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420195204115.png)
 
 * key = value
 
@@ -13346,7 +13352,7 @@ multiset<string> m;
 
 ### 3.7 multimap
 
-![image-20230420191418652](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420191418652.png)
+![image-20230420191418652](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420191418652.png)
 
 * key 和 value分开存储
 
@@ -13362,7 +13368,7 @@ m.size();
 
 ### 3.8 unordered_multiset
 
-![image-20230420195413305](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420195413305.png)
+![image-20230420195413305](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230420195413305.png)
 
 ```cpp
 unordered_multiset<string> c;
@@ -13475,7 +13481,9 @@ int hasher(const vector<int> &arr){
 
 ## 4 allocator 分配器
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420202531224.png" alt="image-20230420202531224" style="zoom:150%;" />
+<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420202531224.png" alt="image-20230420202531224"  />
+
+
 
 ![image-20230420202554298](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230420202554298.png)
 
@@ -13636,7 +13644,9 @@ public:
 
 [const成员函数](#const成员函数)
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230908110057812.png" alt="image-20230908110057812" style="zoom:67%;" />
+
+
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230908110057812.png" alt="image-20230908110057812" style="zoom: 67%;" />
 
 * 常量方法
 * static关键字
@@ -14072,7 +14082,9 @@ int main() {
 
 
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240304162243228.png" alt="image-20240304162243228" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240304162243228.png" alt="image-20240304162243228" style="zoom:67%;" />
+
+
 
 ### 8.7.4 const_cast
 
@@ -14228,7 +14240,7 @@ main 函数内初始化：在 main 函数内部对静态成员变量进行初始
 
 ### 8.8.4 访问权限
 
-![image-20230907173601180](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230907173601180.png)
+![image-20230907173601180](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230907173601180.png)
 
 * 所有对象均可访问静态成员变量，只有一个
 * 所有对象均可访问静态成员函数，只有一个
@@ -14649,9 +14661,9 @@ public:
 
 ### 9.4.5 定制删除器
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240303215417722.png" alt="image-20240303215417722" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110805454.png" alt="image-20240318110805454" style="zoom:67%;" />
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240303215221198.png" alt="image-20240303215221198" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110753422.png" alt="image-20240318110753422" style="zoom:67%;" />
 
 传入一个实现删除的==仿函数==指针进去
 
@@ -14712,7 +14724,7 @@ int* ptr = NULL; // 使用 NULL 初始化指针
   内存中有地址，可以修改的值
 
   1. **变量：** 变量是最常见的左值，因为它们具有名称，可以用于存储和修改值。
-     
+    
      ```cpp
      int x = 10; // x 是左值
      int y = 20;
@@ -14726,7 +14738,7 @@ int* ptr = NULL; // 使用 NULL 初始化指针
      ```
 
   3. **引用：** 引用也是左值，因为它们是变量的别名，可以用于修改原始变量的值。
-     
+    
      ```cpp
      int y = 20;
      int& ref = y; // ref 是左值，可以修改 y 的值
@@ -14735,7 +14747,7 @@ int* ptr = NULL; // 使用 NULL 初始化指针
      ```
      
   4. **函数返回的左值：** 如果函数返回的是一个具体的值（而不是临时对象或表达式的结果），那么它是左值。
-     
+    
      ```cpp
      int getValue() {
          return 100;
@@ -14866,7 +14878,7 @@ int &&c = move(a);
 3. 做返回值：返回自身，减少拷贝
 4. 移动赋值、减少拷贝次数
 
-![image-20240311173514030](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240311173514030.png)
+![image-20240311173514030](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240311173514030.png)
 
 ### 9.4.4 右值引用的应用（2个）
 
@@ -15046,13 +15058,13 @@ int main()
 
 ## 9.5 emplace
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240316113724767.png" alt="image-20240316113724767" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110833902.png" alt="image-20240318110833902" style="zoom:67%;" />
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240316115914493.png" alt="image-20240316115914493" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110845720.png" alt="image-20240318110845720" style="zoom:67%;" />
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240316120023334.png" alt="image-20240316120023334" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110858550.png" alt="image-20240318110858550" style="zoom:67%;" />
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240316120052828.png" alt="image-20240316120052828" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110911263.png" alt="image-20240318110911263" style="zoom:67%;" />
 
 | 类型         | 相同                                           | 差异                                               |
 | ------------ | ---------------------------------------------- | -------------------------------------------------- |
@@ -15187,7 +15199,7 @@ private:
 
 二元函数对象：仿函数内传入两个参数，比如greater仿函数
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240310162045736.png" alt="image-20240310162045736" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110911263.png" style="zoom:67%;" />
 
 ```cpp
 // bind1st : 将二元参数函数的第一个形参变为固定值,
@@ -15309,7 +15321,7 @@ auto result = [] (int a, int b) { return a + b; }(3, 4);
 
 ### 9.11.3 原理
 
-![image-20240226115750005](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240226115750005.png)
+![image-20240226115750005](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240226115750005.png)
 
 
 
@@ -15319,7 +15331,7 @@ auto result = [] (int a, int b) { return a + b; }(3, 4);
 
 [线程池网页](https://cplusplus.com/reference/thread/thread/)
 
-![image-20240228145051199](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240228145051199.png)
+![image-20240228145051199](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240228145051199.png)
 
 ```cpp
 // thread example
@@ -15388,7 +15400,7 @@ int main() {
 
 ### 12.3 锁
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240303220310469.png" alt="image-20240303220310469" style="zoom: 67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111012823.png" alt="image-20240318111012823" style="zoom:67%;" />
 
 ```cpp
 void f(){
@@ -15634,7 +15646,7 @@ static Singleton::CGarbo Garbo;
 
 
 
-![image-20240304104911798](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240304104911798.png)
+![image-20240304104911798](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240304104911798.png)
 
 
 
@@ -15697,7 +15709,7 @@ make工具可以看成是一个智能的批处理工具，它本身并没有编�
 cmake -S . -B build 
 ```
 
-![image-20231115113628228](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231115113628228.png)
+![image-20231115113628228](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231115113628228.png)
 
 ```
 # 第二步：生成，--build 指定Makefile文件的位置，也可以直接使用make命令
@@ -15706,7 +15718,7 @@ cmake --build build
 
 
 
-![image-20231115113736698](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231115113736698.png)
+![image-20231115113736698](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231115113736698.png)
 
 ```
 # 运行
@@ -15830,7 +15842,7 @@ Sum of arguments: 6
 
 ==2.:值为-1的数据在断点调试时，显示的值是多少？在内存中是如何显示的？==
 
-![image-20230814103523663](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20230814103523663.png)
+![image-20230814103523663](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20230814103523663.png)
 
 == sizeof()的使用情况 ==
 
@@ -15895,15 +15907,15 @@ Sum of arguments: 6
 
 
 
-![image-20231204102933313](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231204102933313.png)
+![image-20231204102933313](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231204102933313.png)
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231204102405911.png" alt="image-20231204102405911" style="zoom:80%;" />
+![image-20240318111130498](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111130498.png)
 
 
 
 `objdump -S`: 打印目标文件的链接信息
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231204102906586.png" alt="image-20231204102906586" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111142031.png" alt="image-20240318111142031" style="zoom:80%;" />
 
 
 
@@ -15923,7 +15935,7 @@ Sum of arguments: 6
 >
 > 总之， c 使用c++文件， c++使用c文件，都要用extern "c"
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231204105538052.png" alt="image-20231204105538052" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111156607.png" alt="image-20240318111156607" style="zoom:67%;" />
 
 ## 类
 
@@ -16006,7 +16018,7 @@ class D {
 >// 总大小是最大对齐数的整数倍，即4的倍数，4，8，12， 本次为12
 >```
 >
-><img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231206102559764.png" alt="image-20231206102559764" style="zoom:67%;" />
+><img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111211124.png" alt="image-20240318111211124" style="zoom:67%;" />
 >
 >```cpp
 >struct test
@@ -16039,7 +16051,7 @@ class D {
 >3. this指针==本质上是“非静态成员函数”的形参==，当对象调用成员函数时，将对象地址作为实参传递给 this形参。所以对象中不存储this指针。 
 >4. this指针是“非静态成员函数”第一个隐含的指针形参，linux存在==栈==中，vc下一般情况由编译器通过==ecx寄存器==自动传 递，不需要用户传递
 >
-><img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231206112437603.png" alt="image-20231206112437603" style="zoom:67%;" />
+><img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111225381.png" alt="image-20240318111225381" style="zoom:67%;" />
 >
 >```cpp
 >// 形参存于栈中，从后往前压入栈，读取时候从前往后
@@ -16103,7 +16115,7 @@ int main(){
 >
 > ​								编译器 默认生成的构造函数（双标狗）：不对内置类型处理，调用自定义类型的构造函数
 >
-> <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231206120211206.png" alt="image-20231206120211206" style="zoom:67%;" />
+> <img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111237904.png" alt="image-20240318111237904" style="zoom:67%;" />
 >
 > 2 **析构函数**: 调用自定义类型的析构函数
 >
@@ -16126,9 +16138,9 @@ Data& operator= (const &Data d){
 
 > * 运算符重载
 >
-> * <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231208115746777.png" alt="image-20231208115746777" style="zoom:67%;" />
+> * <img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111249113.png" alt="image-20240318111249113" style="zoom:67%;" />
 >
->   ![image-20231208115727349](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231208115727349.png)
+>   <img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111300188.png" alt="image-20240318111300188" style="zoom:67%;" />
 
 
 
@@ -16143,7 +16155,7 @@ Data& operator= (const &Data d){
 
 
 
-![image-20231207102946913](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231207102946913.png)
+![image-20231207102946913](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231207102946913.png)
 
 > st1._a 指向内存空间m1
 >
@@ -16153,7 +16165,7 @@ Data& operator= (const &Data d){
 >
 > 解决办法：深拷贝，st2开辟一块新内存m2，存储m1内的内容
 
-![image-20231206145243781](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231206145243781.png)
+![image-20231206145243781](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231206145243781.png)
 
 拷贝构造传值：无限调用  递归
 
@@ -16210,7 +16222,7 @@ mystring& operator= (mystring str) {  // 传值，调用拷贝构造，即str(s2
 
 ### 7 连续拷贝构造优化
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231211100717819.png" alt="image-20231211100717819" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111332480.png" alt="image-20240318111332480" style="zoom:67%;" />
 
 值传递的过程都是拷贝构造
 
@@ -16224,7 +16236,7 @@ mystring& operator= (mystring str) {  // 传值，调用拷贝构造，即str(s2
 
 ### 8  隐式类型转换
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231207125705736.png" alt="image-20231207125705736" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111348903.png" alt="image-20240318111348903" style="zoom:67%;" />
 
 多个参数隐式类型转换
 
@@ -16234,7 +16246,7 @@ Data d3 = {1,2,3}
 
 ### 9 静态成员函数
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231208105320921.png" alt="image-20231208105320921" style="zoom:67%;" />
+![image-20240318111405345](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111405345.png)
 
 ```cpp
 // 求1+2+...+n
@@ -16295,7 +16307,7 @@ pubilc:
 
 > 子类对象可以赋值给父类对象、父类指针、父类引用， 这个过程称为==切片==
 >
-> ![image-20231229104856702](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231229104856702.png)
+> ![image-20231229104856702](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231229104856702.png)
 
 <a name="隐藏">跳转</a>
 
@@ -16309,13 +16321,13 @@ pubilc:
 >
 > ​					重定义（隐藏）：父子类之间，函数名相同
 >
-> <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231229105609163.png" alt="image-20231229105609163" style="zoom: 50%;" />
+> <img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111426908.png" alt="image-20240318111426908" style="zoom:50%;" />
 
  
 
 #### 2 派生类的默认成员函数
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231229130828896.png" alt="image-20231229130828896" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111440739.png" alt="image-20240318111440739" style="zoom:50%;" />
 
 ```cpp
 // 父类
@@ -16373,7 +16385,7 @@ protected :
 
 【函数调用顺序】存放在栈中，先进后出
 
-![image-20231229131428222](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231229131428222.png)
+![image-20231229131428222](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231229131428222.png)
 
 #### 3 继承与友元
 
@@ -16387,7 +16399,7 @@ protected :
 
 #### 5 菱形继承
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231229145718343.png" alt="image-20231229145718343" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111500619.png" alt="image-20240318111500619" style="zoom:50%;" />
 
 ![image-20231229145825131](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231229145825131.png)
 
@@ -16446,7 +16458,7 @@ protected :
 
 #### 6 虚继承
 
-![image-20231229153650919](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231229153650919.png)
+![image-20231229153650919](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231229153650919.png)
 
 > 虚拟继承底层： B，C各自拥有指针指向虚基表，虚拟表内存放继承A的成员的偏移量，通过偏移量找到继承的成员
 >
@@ -16480,7 +16492,7 @@ class C {
 >
 > 【继承和组合的区别？什么时候用继承？什么时候用组合？】
 >
-> ![image-20240102191528276](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240102191528276.png)
+> ![image-20240102191528276](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240102191528276.png)
 
 ### 8 多态
 
@@ -16616,11 +16628,11 @@ int main()
 
 1. 基类析构没有virtual为虚函数：
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231231233241178.png" alt="image-20231231233241178" style="zoom: 50%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111711438.png" alt="image-20240318111711438" style="zoom:50%;" />
 
 2. 基类析构写为virtual为虚函数，构成多态
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231231233356986.png" alt="image-20231231233356986" style="zoom: 50%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111724950.png" alt="image-20240318111724950" style="zoom:50%;" />
 
 将基类的析构函数声明为虚函数是为了支持多态性，这在 C++ 中是实现多态行为的基础。在以下情况下，你通常会将基类的析构函数声明为虚函数：
 
@@ -16636,7 +16648,7 @@ int main()
 
 #### 4 重载 重写 重定义
 
-![image-20240102124503578](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240102124503578.png)
+![image-20240102124503578](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240102124503578.png)
 
 
 
@@ -16679,7 +16691,7 @@ public:
 
 #### 7 多态实现原理
 
-![image-20240102154542850](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240102154542850.png)
+![image-20240102154542850](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240102154542850.png)
 
 
 
@@ -16714,11 +16726,11 @@ class A{
 }
 ```
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240102172758847.png" alt="image-20240102172758847" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111755139.png" alt="image-20240318111755139" style="zoom:50%;" />
 
 #### 8 多继承对象模型
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240102185653092.png" alt="image-20240102185653092" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111808118.png" alt="image-20240318111808118" style="zoom:50%;" />
 
 * 子类继承父类的虚函数表，然后再其上进行覆盖
 * 多继承时，继承多个父类的虚函数表
@@ -16768,9 +16780,9 @@ class A{ virtual ~A(){}}  // 析构声明为virtual，则析构时调用~B() 再
 
 
 
-![image-20231211104512980](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231211104512980.png)  
+![image-20231211104512980](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231211104512980.png)  
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231211112104674.png" alt="image-20231211112104674" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111831844.png" alt="image-20240318111831844" style="zoom:67%;" />
 
 --------------------
 
@@ -16800,11 +16812,11 @@ MOV AX, 10
 
 [编译过程](#编译)
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231211112447958.png" alt="image-20231211112447958" style="zoom:67%;" />
+![image-20240318111847454](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111847454.png)
 
 ### 3 new 和 malloc的区别
 
-![image-20231212173138574](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231212173138574.png)
+![image-20231212173138574](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231212173138574.png)
 
 > 1 对于内置类型，均只开辟内存
 >
@@ -16841,11 +16853,11 @@ int main()
 }
 ```
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231212161533414.png" alt="image-20231212161533414" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111916539.png" alt="image-20240318111916539" style="zoom:67%;" />
 
 ### 4 operator new 和 malloc 的区别 
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231212155525960.png" alt="image-20231212155525960" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318111930100.png" alt="image-20240318111930100" style="zoom:67%;" />
 
 ### 5 malloc、operator new、new的关系
 
@@ -16885,9 +16897,9 @@ int main(){
 
 进程地址空间本质：操作系统内核管理的数据结构，结构体表示 mm_struct
 
-![image-20231220184507993](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231220184507993.png)
+![image-20231220184507993](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231220184507993.png)
 
-![image-20231220184428855](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231220184428855.png)
+![image-20231220184428855](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231220184428855.png)
 
 ## STL
 
@@ -16928,13 +16940,13 @@ class array
 >
 > 【答案】会报链接错误，模板函数因为没有具体的类型，所以在func.cpp文件编译的时候，没有在符号表内生成模板函数的地址，因此在链接的时候，main函数找不到该函数，报链接错误
 >
-> <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240311182345482.png" alt="image-20240311182345482" style="zoom:80%;" />
+> ![image-20240318112005372](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318112005372.png)
 >
-> <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240311182238220.png" alt="image-20240311182238220" style="zoom: 80%;" />
+> ![image-20240318112015088](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318112015088.png)
 >
 > 
 >
-> ![image-20231229095451690](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231229095451690.png)
+> ![image-20231229095451690](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231229095451690.png)
 
 编译阶段，func头文件在test.cpp文件中展开，内含有 F1 和 模板函数F2 的声明, 编译通过（有承诺）
 
@@ -17472,7 +17484,7 @@ void test4(const vector<int>& v) {
 
 > 1. 当开辟新空间时候，若就空间内存在指针，比如存放string，采用 memcpy() 则会导致浅拷贝问题
 
-![image-20231224220759028](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231224220759028.png)
+![image-20231224220759028](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231224220759028.png)
 
 【解决】通过赋值操作，调用string的 operator= 操作
 
@@ -18451,7 +18463,7 @@ C++ 标准库提供了三种主要的容器适配器：
 
 使用容器适配器的好处是，它们提供了一个简单的接口来操作基础容器，同时隐藏了复杂性。例如，使用 `std::stack`，您可以轻松地进行堆栈操作，而不必直接操作 `std::deque`。这提高了代码的可读性和可维护性。
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231227214314294.png" alt="image-20231227214314294" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318112102996.png" alt="image-20240318112102996" style="zoom:50%;" />
 
 ## 2 面试题
 
@@ -18463,7 +18475,7 @@ C++ 标准库提供了三种主要的容器适配器：
 
 > 2 优缺点
 >
-> ![image-20231228092126289](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231228092126289.png)
+> ![image-20231228092126289](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231228092126289.png)
 >
 > vector: 头插头删效率低
 >
@@ -18631,7 +18643,7 @@ namespace yu {
 
 > [数组中第k个最大的元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/description/)
 
-![image-20231228155550782](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231228155550782.png)
+![image-20231228155550782](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20231228155550782.png)
 
 ```cpp
 class Solution {
@@ -18794,7 +18806,7 @@ public:
 
 * 一直遍历树的左孩子，直到null
 * 访问完毕左孩子，访问有孩子，将右孩子全部转为左孩子，while继续访问
-* <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240105122805155.png" alt="image-20240105122805155" style="zoom:50%;" />
+* <img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318112154237.png" alt="image-20240318112154237" style="zoom:67%;" />
 
 ```cpp
 // 前序遍历
@@ -19397,7 +19409,7 @@ public:
 
 ### 问题
 
-![image-20240104150009121](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240104150009121.png)
+![image-20240104150009121](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240104150009121.png)
 
 
 
@@ -19563,14 +19575,14 @@ public:
 >    mapped_type& operator[] (const key_type& k){
 >        return (*((this->insert(make_pair(k,mapped_type()))).first)).second;
 >    }
->                                              
+>                                                 
 >    1. map["苹果"] = 2;
 >    2. key不存在，map[key] = val，即先插入<key, T()>, 在修改默认的val
 >    3. key存在，直接修改val
 >    4. 为什么不通过find实现找到插入位置？ 因为key不存在时，无法插入val
 >    ```
 >
->    <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240106093052482.png" alt="image-20240106093052482" style="zoom: 67%;" />
+>    <img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318112232434.png" alt="image-20240318112232434" style="zoom:67%;" />
 >
 >    4. 常用操作
 >
@@ -19594,19 +19606,19 @@ public:
 >               for(auto e : words){
 >                   m[e] ++;
 >               }
->                                                                                           
+>                                                                                                 
 >               // kv呼唤，按照val排序
 >               multimap<int,string,greater<int>> mmp;
 >               for(const auto& pair : m){
 >                   mmp.insert(make_pair(pair.second, pair.first));
 >               }
->                                                                                           
+>                                                                                                 
 >               auto it = mmp.begin();
 >               vector<string> res;
 >               for(int i = 0; i < k; ++i){
 >                   res.push_back(it->second);
 >                   ++it;
->                                                                                           
+>                                                                                                 
 >               }
 >               return res;
 >           }
@@ -19709,7 +19721,7 @@ bool insert(const pair<K, V>& kv) {
 
 ### 旋转调整
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240108182429215.png" alt="image-20240108182429215" style="zoom:25%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318112249849.png" alt="image-20240318112249849" style="zoom:25%;" />
 
 
 
@@ -19723,7 +19735,7 @@ bool insert(const pair<K, V>& kv) {
 
 #### 1 左单旋
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240108183819793.png" alt="image-20240108183819793" style="zoom:25%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318112307830.png" alt="image-20240318112307830" style="zoom:25%;" />
 
 ```cpp
 void rotatelL(Node* par) {
@@ -19788,7 +19800,7 @@ void rotatelR(Node* par) {
 
 #### 3 右左双旋
 
-<img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240108182429215.png" alt="image-20240108182429215" style="zoom:25%;" />
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318112330144.png" alt="image-20240318112330144" style="zoom:25%;" />
 
 * 先打掉右边突出（cur） --- 右单旋
 * 再左单旋（par）---- 左单选
@@ -19910,19 +19922,19 @@ public:
 
   3. 若父节点为红，叔为红，则修改： 父 和 叔 均变黑， 爷变红； 继续拿爷当cur向上判断
 
-     ![image-20240314120729274](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240314120729274.png)
+     ![image-20240314120729274](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240314120729274.png)
 
   4. 若父节点为红，叔节点为空或为黑，则需  旋转 + 变色 ，插入结束
 
      * 右单旋 + 第二层变红，第一次变黑
 
-       ![image-20240314121446300](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240314121446300.png)
+       ![image-20240314121446300](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240314121446300.png)
 
      * 左单选 + 变色
 
      * 双旋 + 变色
 
-       ![image-20240314122215511](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240314122215511.png)
+       ![image-20240314122215511](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240314122215511.png)
 
        
 
