@@ -394,7 +394,7 @@ sudo apt install vim
   ssh -T git@github.com
   
   操作：
-  git clone
+  git clone xxxxx
   切换分支
   sudo git checkout --track origin/master
   
@@ -556,11 +556,30 @@ sudo apt-get install libmysqlclient-dev
 
 
 
-  ![image-20231023161438258](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231023161438258.png)
+  <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231023161438258.png" alt="image-20231023161438258" style="zoom:50%;" />
 
 * 换回默认源
 
 ```
 conda config --remove-key channels
+```
+
+
+
+# 6 git命令
+
+```shell
+git clone ...
+// 查看远程
+git remote
+// 查看本地分支
+git branch
+// 查看修改的操作
+git status
+// 将所有的修改操作保存到本地缓存区
+git add.
+// 将缓存区内操作同步到本地仓库
+git commit -a
+git commit -m "message注释信息"
 ```
 
