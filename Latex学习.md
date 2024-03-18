@@ -127,3 +127,7 @@ a=b+c
 ![image-20240318103508498](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318103508498.png)
 
 ss
+
+测试 picgo2
+
+![image-20240318104503506](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318104503506.png)

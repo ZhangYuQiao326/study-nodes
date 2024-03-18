@@ -122,6 +122,12 @@ select from
 
 
 
+# 结合picgo
+
+网盘下载位置：/me/win
+
+ [github配置文档](https://zhuanlan.zhihu.com/p/489236769)
+
 
 
 
