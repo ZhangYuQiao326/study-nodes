@@ -15531,6 +15531,36 @@ typedef void(*FuncPtr)(int);
 
 虽然在功能上它们是相同的，但是在 C++11 及以后的版本中，推荐使用 `using` 关键字来创建类型别名，因为它更加现代化、清晰和灵活。
 
+## 9.15 packaged_task
+
+* 用来包装一个任务函数，并允许在异步执行完函数后，获取返回结果
+* jie'he
+
+```cpp
+#include <iostream>
+#include <future>
+
+int main() {
+    // 创建一个 std::packaged_task，包装一个 Lambda 表达式
+    std::packaged_task<int(int)> task([](int x) { return x * x; });
+
+    // 获取与任务关联的 std::future 对象
+    std::future<int> future = task.get_future();
+
+    // 异步执行任务
+    task(42);
+
+    // 获取任务的结果
+    int result = future.get();
+
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}
+```
+
+
+
 # 十 设计模式
 
 ## 10.1 单例模式
@@ -15725,7 +15755,50 @@ cmake --build build
 ./build/first_cmake
 ```
 
+### 2 linux编译动态库
 
+```shell
+g++ -fPIC -shared test.cpp -o libtest.so
+```
+
+- `g++`: 这是 GNU C++ 编译器的命令。
+- `-fPIC`: 这个选项告诉编译器生成位置无关的代码，通常在生成共享库时需要使用。
+- `-shared`: 这个选项告诉编译器生成一个共享库，而不是可执行文件。
+- `test.cpp`: 这是你的源代码文件。
+- `-o libtest.so`: 这个选项指定生成的共享库的输出文件名为 `libtest.so`。
+
+这个命令将会编译 `test.cpp` 文件为一个名为 `libtest.so` 的共享库，你可以通过动态链接这个库到其他程序来使用其中的函数和功能
+
+-------------
+
+1. 主函数编译的时候，会从指定位置寻找所需要的头文件和库文件
+
+2. 将编译好的动态库放入指定文件夹
+
+3. ```shell
+   mv libtest.so /usr/local/lib
+   mv test.h /usr/local/include
+   ```
+
+---------
+
+* 编译主文件 `-l`选项链接上库文件，库文件去掉`lib`开头和`.so`结尾
+
+* 编译阶段从 `/usr/local/lib`寻找动态库
+
+  ```shell
+  g++ main.cpp -o main -ltest
+  ```
+
+* 执行阶段从`/etc/ld.so.conf.d`中，寻找动态库的路径`/usr/local/lib`，再根据路径寻找动态库
+
+* 添加动态库路径：创建mylib.conf文件，在文件中添加动态库地址
+
+  ```shell
+  ./main
+  ```
+
+  
 
 ## 11.1 argc、argv
 
@@ -19575,7 +19648,7 @@ public:
 >    mapped_type& operator[] (const key_type& k){
 >        return (*((this->insert(make_pair(k,mapped_type()))).first)).second;
 >    }
->                                                 
+>                                                       
 >    1. map["苹果"] = 2;
 >    2. key不存在，map[key] = val，即先插入<key, T()>, 在修改默认的val
 >    3. key存在，直接修改val
@@ -19606,19 +19679,19 @@ public:
 >               for(auto e : words){
 >                   m[e] ++;
 >               }
->                                                                                                 
+>                                                                                                             
 >               // kv呼唤，按照val排序
 >               multimap<int,string,greater<int>> mmp;
 >               for(const auto& pair : m){
 >                   mmp.insert(make_pair(pair.second, pair.first));
 >               }
->                                                                                                 
+>                                                                                                             
 >               auto it = mmp.begin();
 >               vector<string> res;
 >               for(int i = 0; i < k; ++i){
 >                   res.push_back(it->second);
 >                   ++it;
->                                                                                                 
+>                                                                                                             
 >               }
 >               return res;
 >           }
