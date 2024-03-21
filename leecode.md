@@ -1021,12 +1021,12 @@ public:
 
 | 集合               | 底层实现 | 是否有序 | key是否可以重复 | 查询效率   | 增删效率   |
 | ------------------ | -------- | -------- | --------------- | ---------- | ---------- |
-| std::set           | 红黑树   | 有序     | 否，唯一        | O( log n ) | O(long n)  |
+| std::set           | 红黑树   | 有序     | 唯一            | O( log n ) | O(long n)  |
 | std::mutiset       | 红黑树   | 有序     | ==是==          | O( log n ) | O( log n ) |
-| std::unordered_set | 哈希表   | ==无序== | 否，唯一        | O( 1 )     | O( 1 )     |
-| std::map           | 红黑树   | 有序     | 否，唯一        | O( log n ) | O( log n ) |
+| std::unordered_set | 哈希表   | ==无序== | 唯一            | O( 1 )     | O( 1 )     |
+| std::map           | 红黑树   | 有序     | 唯一            | O( log n ) | O( log n ) |
 | std::mutimap       | 红黑树   | 有序     | ==是==          | O( log n ) | O( log n ) |
-| std::unorder_map   | 哈希表   | ==无序== | 否，唯一        | O( 1 )     | O( 1 )     |
+| std::unorder_map   | 哈希表   | ==无序== | 唯一            | O( 1 )     | O( 1 )     |
 
 
 
@@ -1050,7 +1050,7 @@ public:
   
   // 查
   auto it = myset.find(10);
-  if(it != myset.edn()){}
+  if(it != myset.end()){}
   
   // 遍历
   for(const auto& element : myset){
@@ -1073,6 +1073,7 @@ public:
   // 增
   myMap.insert({1, "apple"});
   myMap.insert(std::make_pair(2, "banana"));
+  myMap.emplace(2, "banabna")
   myMap[3] = "orange";
   
   // 删

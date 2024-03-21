@@ -14416,9 +14416,14 @@ namespace yu {
 
 	};
 
-	// 导致问题： 拷贝会释放掉原智能指针的ptr
-	// 解决办法1： unique_ptr,设置防止拷贝
+	// auto_ptr导致问题： 拷贝会释放掉原智能指针的ptr，再次调用原ptr时候，会程序崩溃
+    // 因此容器内也不能存放auto_ptr
+    // 解决办法1:  scoped_ptr,delete掉拷贝构造和赋值运算符重在
+    // 解决办法2： unique_ptr,delete拷贝构造和赋值运算符重载，开放右值引用的移动构造和右值运算符重载
+    // 解决办法3： shared_ptr，添加引用计数
 
+    
+    // 用户显式调用资源转移
 	template <class T>
 	class unique_ptr {
 	public:
@@ -14511,58 +14516,26 @@ namespace yu {
 
 	};
 
-	// 3 shared_ptr存在循环引用的问题，即两个指针相互指，无法释放
-	
-
-
-
+	// 3 shared_ptr存在交叉引用的问题，即两个shared_ptr指针相互指，导致无法释放
+    // 解决： 定义对象时使用强智能指针，引用对象时使用若智能指针
+    // 注意： 弱智能指针只是观察者角度，不修改引用计数，同样也不能使用资源
+    // 要使用若智能指针的资源，要强转为强智能指针
+    int maine{
+        A{
+            weak_ptr<B> b_;
+        }
+        B{
+            weak_ptr<A> a_;   // 引用对象弱智能指针
+            
+            // 使用时候强转
+            shared_ptr<A> ptr = a_.lock();
+            if(ptr) {// 强转成功则使用，失败说明弱智能指针已经释放}
+        }
+        shared_ptr<A> a ; // 定义对象强智能指针
+        shared_ptr<B> b ;
+    }
 }
 ```
-
-1. `std::shared_ptr<T>`：共享指针（Shared Pointer）
-
-   - 作用：多个指针可以共享同一个对象，并在最后一个引用释放时自动销毁对象。
-   
-   ```cpp
-   std::shared_ptr<int> ptr1 = std::make_shared<int>(10);
-   std::shared_ptr<int> ptr2 = ptr1;
-   std::cout << *ptr1 << " " << *ptr2 << std::endl;  // 输出：10 10
-   
-   ```
-   
-
-  2、`std::unique_ptr<T>`：独占指针（Unique Pointer）
-
-   - 作用：确保只有一个指针可以拥有对对象的独占权，并在该指针离开作用域时自动释放对象。
-   - 注意：不能==左值传参==，需要转为右值后进行右值传参，因为禁止了左值拷贝 和 左值operator=
-
-   ```cpp
-   std::unique_ptr<int> ptr = std::make_unique<int>(20);
-   vec.push_back(std::move(ptr)) // 值传参，开放右值拷贝
-   ```
-
-  ```cpp
-  std::unique<int> ptr;
-  std::unique<int> newptr = make_unique<int>(5)
-  
-  ptr = newptr; (❌) // 禁止了左值operator=
-  ptr = move(newptr);(√) // 开放右值operator=
-  ```
-
-
-
-3、`std::weak_ptr<T>`：弱引用指针（Weak Pointer）
-
-   - 作用：用于解决共享指针可能导致的循环引用问题，并且不会增加引用计数。
-
-   ```cpp
-   std::shared_ptr<int> sharedPtr = std::make_shared<int>(30);
-   std::weak_ptr<int> weakPtr = sharedPtr;
-   std::cout << *sharedPtr << " " << *weakPtr.lock() << std::endl;  // 输出：30 30
-   
-   ```
-
-
 
 ### 9.1.2 初始化
 
@@ -14589,77 +14562,61 @@ new返回的是一个指针，智能指针是一个类对象，里面重载了�
 
  	错误：`std::unique_ptr<int> uptr = new int(5);`
 
-* 使用move转换权限
+### 9.1.3 作为参数或者使用
 
-```cpp
-std::shared_ptr<int> ptr1;
-std::shared_ptr<int> ptr2 = std::make_shared<int>(10);
-ptr1 = std::move(ptr2);
-```
+1. `std::shared_ptr<T>`：共享指针（Shared Pointer）
 
+   - 作用：多个指针可以共享同一个对象，并在最后一个引用释放时自动销毁对象。
+   - 注意交叉引用
 
+   ```cpp
+   std::shared_ptr<int> ptr1 = std::make_shared<int>(10);
+   std::shared_ptr<int> ptr2 = ptr1;
+   std::cout << *ptr1 << " " << *ptr2 << std::endl;  // 输出：10 10
+   
+   ```
 
-### 9.1.4 操作函数
+  2、`std::unique_ptr<T>`：独占指针（Unique Pointer）
 
-```cpp
-std::unique<int> ptr = make_unique<int>(5);
+   - 作用：确保只有一个指针可以拥有对对象的独占权，并在该指针离开作用域时自动释放对象。
+   - 注意：不能==左值传参==，需要转为右值后进行右值传参，因为禁止了左值拷贝 和 左值operator=
 
-// 返回zhi'xiang裸指针
-ptr.get();
+   ```cpp
+std::unique_ptr<int> ptr = std::make_unique<int>(20);
+1. vec.push_back(std::move(ptr)) // 值传参，开放右值拷贝
 
-```
+2. void func(const unique_ptr<T>&& a){};
+func(std::move(ptr));
+   ```
 
-### 9.4.1 创建/初始化智能指针
+  ```cpp
+std::unique<int> ptr;
+std::unique<int> newptr = make_unique<int>(5)
 
-```cpp
-class MyClass {};
-MyClass obj;
-
-// 使用移动语义将 obj 转移到 shared_ptr 中
-std::shared_ptr<MyClass> ptr = std::make_shared<MyClass>(std::move(obj));
-std::unique_ptr<MyClass> ptr = std::make_unique<MyClass>(std::move(obj));
-```
-
-### 9.4.2 共享指针
-
-* 之间可以直接赋值，因为共享指针已经实现了正确语意
-
-```cpp
-std::shared_ptr<int> ptr1 = std::make_shared<int>(42);
-std::shared_ptr<int> ptr2 = ptr1; // 共享相同的资源
-
-std::shared_ptr<int> ptr3 = std::make_shared<int>(50);
-ptr2 = ptr3; // 共享新的资源，原始资源的引用计数减少
-
-```
-
-### 9.4.3 独占指针
-
-* 赋值操作会导致所有权的转移，需要使用移动语义或者 `std::move` 来确保资源的正确转移
-
-```cpp
-std::unique_ptr<int> sourcePtr = std::make_unique<int>(42);
-std::unique_ptr<int> destPtr;
-destPtr = std::move(sourcePtr);  // 使用 std::move 转移所有权
-
-```
-
-### 9.4.4 初始化容器
-
-```cpp
-MyClass{
-public:
-    explicit MyClass(std::shared_ptr<int> intptr,std::map<key,value> map_): 
-    intptr_(std::move(intptr)),map_(std::moce(map)){};
-    
-    std::shared_ptr<int> intptr_;
-    std::map<key,value> map_;
-}
-```
+ptr = newptr; (❌) // 禁止了左值operator=
+ptr = move(newptr);(√) // 开放右值operator=
+  ```
 
 
 
-### 9.4.5 定制删除器
+3、`std::weak_ptr<T>`：弱引用指针（Weak Pointer）
+
+   - 作用：用于解决共享指针可能导致的循环引用问题，并且不会增加引用计数，也不会使用强智能指针资源
+   - 使用资源时候强转为强指针
+
+   ```cpp
+std::shared_ptr<int> sharedPtr = std::make_shared<int>(30);
+std::weak_ptr<int> weakPtr = sharedPtr;
+std::cout << *sharedPtr << " " << *weakPtr.lock() << std::endl;  // 输出：30 30
+
+// 强转
+std::shared_ptr<int> ptr = weakPtr.lock();
+if(prt){// 强转成功则使用资源}
+   ```
+
+### 9.1.5 定制删除器
+
+智能指针默认的删除器是直接delete ptr
 
 <img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110805454.png" alt="image-20240318110805454" style="zoom:67%;" />
 
@@ -15066,10 +15023,10 @@ int main()
 
 <img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318110911263.png" alt="image-20240318110911263" style="zoom:67%;" />
 
-| 类型         | 相同                                           | 差异                                               |
-| ------------ | ---------------------------------------------- | -------------------------------------------------- |
-| push_back    | 插入左值对象、右值对象 调用 拷贝构造和移动拷贝 |                                                    |
-| em[lace_back | 插入左值对象、右值对象 调用 拷贝构造和移动拷贝 | 直接传入参数，在vector内部直接创建对象，减少了拷贝 |
+| 类型         | 相同                                           | 差异                                                         |
+| ------------ | ---------------------------------------------- | ------------------------------------------------------------ |
+| push_back    | 插入左值对象、右值对象 调用 拷贝构造和移动拷贝 |                                                              |
+| em[lace_back | 插入左值对象、右值对象 调用 拷贝构造和移动拷贝 | 直接传入参数，调用默认构造在vector内部直接创建对象，减少了拷贝 |
 
 
 
@@ -19648,7 +19605,7 @@ public:
 >    mapped_type& operator[] (const key_type& k){
 >        return (*((this->insert(make_pair(k,mapped_type()))).first)).second;
 >    }
->                                                       
+>                                                             
 >    1. map["苹果"] = 2;
 >    2. key不存在，map[key] = val，即先插入<key, T()>, 在修改默认的val
 >    3. key存在，直接修改val
@@ -19679,19 +19636,19 @@ public:
 >               for(auto e : words){
 >                   m[e] ++;
 >               }
->                                                                                                             
+>                                                                                                                         
 >               // kv呼唤，按照val排序
 >               multimap<int,string,greater<int>> mmp;
 >               for(const auto& pair : m){
 >                   mmp.insert(make_pair(pair.second, pair.first));
 >               }
->                                                                                                             
+>                                                                                                                         
 >               auto it = mmp.begin();
 >               vector<string> res;
 >               for(int i = 0; i < k; ++i){
 >                   res.push_back(it->second);
 >                   ++it;
->                                                                                                             
+>                                                                                                                         
 >               }
 >               return res;
 >           }
