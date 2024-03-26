@@ -14585,7 +14585,7 @@ new返回的是一个指针，智能指针是一个类对象，里面重载了�
 std::unique_ptr<int> ptr = std::make_unique<int>(20);
 1. vec.push_back(std::move(ptr)) // 值传参，开放右值拷贝
 
-2. void func(const unique_ptr<T>&& a){};
+2. void func( unique_ptr<T>&& a){};
 func(std::move(ptr));
    ```
 
@@ -15590,7 +15590,7 @@ class Singleton{
 public:
     // 唯一接口获取范例
     static Singleton* getSingle(){
-        if(singlePtr == nullptr){
+        if(singlePtr == nullptr){   // 双重判断
             unique_lock<mutex> lock(mtx_);
             if(singlePtr ==nullptr){
                 singlePtr = new Singleton();
@@ -19605,7 +19605,7 @@ public:
 >    mapped_type& operator[] (const key_type& k){
 >        return (*((this->insert(make_pair(k,mapped_type()))).first)).second;
 >    }
->                                                             
+>                                                                
 >    1. map["苹果"] = 2;
 >    2. key不存在，map[key] = val，即先插入<key, T()>, 在修改默认的val
 >    3. key存在，直接修改val
@@ -19636,19 +19636,19 @@ public:
 >               for(auto e : words){
 >                   m[e] ++;
 >               }
->                                                                                                                         
+>                                                                                                                               
 >               // kv呼唤，按照val排序
 >               multimap<int,string,greater<int>> mmp;
 >               for(const auto& pair : m){
 >                   mmp.insert(make_pair(pair.second, pair.first));
 >               }
->                                                                                                                         
+>                                                                                                                               
 >               auto it = mmp.begin();
 >               vector<string> res;
 >               for(int i = 0; i < k; ++i){
 >                   res.push_back(it->second);
 >                   ++it;
->                                                                                                                         
+>                                                                                                                               
 >               }
 >               return res;
 >           }
