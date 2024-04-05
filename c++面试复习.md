@@ -203,25 +203,7 @@ this是局部形参，只能用在成员函数的内部，只有调用成员函�
 
 
 
-**5 说一说多态**
 
-c++中的多态分为静多态和动多态
-
-* 静多态是==编译==时期的多态，技术有==函数重载==、==模板==等
-* 动多态是==程序执行==过程中的多态，即通过基类指针访问派生类对象的同名覆盖方法
-* 多态与实例化的对象有关，跟调用对象的类型无关，基类和派生类都是通过基类指针或引用来调用虚函数
-
-
-
-**6 构成多态的条件**
-
-1 基类中必须通过virtual提供==虚函数的统一接口==，派生类对象对纯虚函数进行重写
-
-2 必须通过==基类指针==或引用调用派生类重写的虚函数
-
-
-
-【关于虚函数】https://csguide.cn/cpp/object_oriented/why_template_cannot_be_virtual.html#%E9%97%AE%E9%A2%98%E5%90%AB%E4%B9%89
 
 ## 内存管理
 
@@ -241,7 +223,13 @@ operatpr delete 和 free 区别不大
 
 其余情况下，使用new[]申请，可以用delete ptr释放
 
+**2. malloc的底层实现**
 
+通过两个系统调用  brk mmap
+
+brk: 调整堆的末端，即将末端地址向高地址移动，增加堆的大小
+
+mmap：获取堆内的一块空间
 
 **2 虚拟地址空间**
 
@@ -379,7 +367,7 @@ list支持高效的增删改查
 
 ![image-20240314183205222](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240314183205222.png)
 
-
+![image-20240328154625330](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240328154625330.png)
 
 ![image-20240314192809279](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240314192809279.png)
 

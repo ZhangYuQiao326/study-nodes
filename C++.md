@@ -15668,15 +15668,15 @@ static Singleton::CGarbo Garbo;
 3.但是当你的程序包含很多个源文件时，用gcc命令逐个去编译时，你就很容易混乱而且工作量大
 
 4.所以出现了make工具
-make工具可以看成是一个智能的批处理工具，它本身并没有编译和链接的功能，而是用类似于批处理的方式—通过调用makefile文件中用户指定的命令来进行编译和链接的。
+make工具可以看成是一个智能的批处理**工具**，它本身并没有编译和链接的功能，而是用类似于批处理的方式—通过调用makefile文件中用户指定的命令来进行编译和链接的。
 
-5.makefile是什么？简单的说就像一首歌的乐谱，make工具就像指挥家，指挥家根据乐谱指挥整个乐团怎么样演奏，make工具就根据makefile中的命令进行编译和链接的。
+5.makefile是什么？简单的说就像一首歌的**乐谱**，make工具就像**指挥家**，指挥家根据乐谱指挥整个乐团怎么样演奏，make工具就根据makefile中的命令进行编译和链接的。
 
 6.makefile命令中就包含了调用gcc（也可以是别的编译器）去编译某个源文件的命令。
 
 7.makefile在一些简单的工程完全可以人工手下，但是当工程非常大的时候，手写makefile也是非常麻烦的，如果换了个平台makefile又要重新修改。
 
-8.这时候就出现了Cmake这个工具，cmake就可以更加简单的生成makefile文件给上面那个make用。当然cmake还有其他功能，就是可以跨平台生成对应平台能用的makefile，你不用再自己去修改了。
+8.这时候就出现了Cmake这个工具，**cmake就可以更加简单的生成makefile文件给上面那个make用**。当然cmake还有其他功能，就是可以跨平台生成对应平台能用的makefile，你不用再自己去修改了。
 
 9.可是cmake根据什么生成makefile呢？它又要根据一个叫CMakeLists.txt文件（学名：组态档）去生成makefile。
 
@@ -19605,7 +19605,7 @@ public:
 >    mapped_type& operator[] (const key_type& k){
 >        return (*((this->insert(make_pair(k,mapped_type()))).first)).second;
 >    }
->                                                                
+>                                                                         
 >    1. map["苹果"] = 2;
 >    2. key不存在，map[key] = val，即先插入<key, T()>, 在修改默认的val
 >    3. key存在，直接修改val
@@ -19636,19 +19636,19 @@ public:
 >               for(auto e : words){
 >                   m[e] ++;
 >               }
->                                                                                                                               
+>                                                                                                                                                 
 >               // kv呼唤，按照val排序
 >               multimap<int,string,greater<int>> mmp;
 >               for(const auto& pair : m){
 >                   mmp.insert(make_pair(pair.second, pair.first));
 >               }
->                                                                                                                               
+>                                                                                                                                                 
 >               auto it = mmp.begin();
 >               vector<string> res;
 >               for(int i = 0; i < k; ++i){
 >                   res.push_back(it->second);
 >                   ++it;
->                                                                                                                               
+>                                                                                                                                                 
 >               }
 >               return res;
 >           }
@@ -20065,3 +20065,19 @@ int main () {
 }
 ```
 
+
+
+### 面试题
+
+* 算法LRU
+* tcp五层、osi七层
+* c 和 c++ 区别
+* 网络层和链路层作用
+* 指针引用区别
+* 栈和队列区别
+* new malloc区别
+* 智能指针区别
+* url网页渲染过程
+* 三握四挥 ，time_wait
+* tcp udp区别 更安全or更可靠
+* 虚函数和纯虚函数
