@@ -295,6 +295,15 @@ tar -zxvf [xxx.tar.gz]
 tar -zxvf [xxx.tar.gz] -C [指定路径]
 ```
 
+### 网络
+
+```shell
+// 显示网络tcp连接，显示服务器版本等待客户端连接的应用
+sudo netstat -tanp
+```
+
+
+
 ## 3 用户权限
 
 ### 1 组管理
@@ -510,6 +519,10 @@ sudo systemctl enable mysql
 可以使用以下命令检查MySQL服务是否正在运行：
 sudo systemctl status mysql
 
+root用户登录服务端
+sudo mysql -u root
+    
+============================================
 如果需要在Ubuntu中使用MySQL客户端，可以运行以下命令安装：
 sudo apt-get install mysql-client
 
@@ -522,7 +535,7 @@ mysql -u root -p 密码随意 123456
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 删除 bind 127.0.0.1
    
-//2
+
 // 创建其他用户
 // 建立yourdb库
 create database yourdb;
@@ -539,6 +552,9 @@ INSERT INTO user(username, passwd) VALUES('zhang', '123456');
 sudo apt-get install libmysqlclient-dev
 可以在远程连接
 #include <mysql/mysql.h>
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+FLUSH PRIVILEGES;
+SELECT user, host FROM mysql.user;
 
 ```
 
@@ -566,63 +582,3 @@ conda config --remove-key channels
 
 
 
-# 6 git命令
-
-<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318124556650.png" alt="image-20240318124556650" style="zoom:50%;" />
-
-```shell
-git clone ...
-// 查看远程
-git remote
-// 查看本地分支
-git branch
-// 查看修改的操作
-git status
-// 将所有的修改操作保存到本地缓存区
-git add.
-// 将缓存区内操作同步到本地仓库
-git commit -m "message注释信息"
-// 本地仓库推送远程仓库
-git push origin main
-// 查看修改日志
-git log
-```
-
-* 各阶段回退操作
-
-![image-20240318130118113](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318130118113.png)
-
-* 分支操作
-
-```shell
-// 查看本地分支
-git branch
-// 查看远程分支
-git branch -r  // remote远程
-// 查看本地库与远程库的追踪关系
-git branch -vv
-
-// 创建分支
-git branch xx
-// 设置分支追踪远程库
-git branch -u origin/dev
-// 创建分支，追踪远程分支
-git checkout -b dev origal/dev
-// 切换分支
-git checkout xx
-// 创建并切换分支
-git checkout -b 分支2  // (branch)
-
-// 合并分支仓库和本地仓库
-git merge xx2
-// 删除分支
-git branch -d xx (未合并删除失败)
-// 强制删除
-git branch -D xx
-```
-
-* 企业级使用git流程
-
-<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318142846487.png" alt="image-20240318142846487" style="zoom:67%;" />
-
-<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240318142922996.png" alt="image-20240318142922996" style="zoom:67%;" />
