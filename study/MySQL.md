@@ -137,8 +137,8 @@ select name from user order by age desc;
 ```
 
 * orderby的效率和 select的数据 和 排序基于的数据有关
-* `select key from user order by key`, 是通过索引排序，效率高
-* 其他情况，是通过外文件排序，效率低 
+* `select key from user order by key`, 是通过索引排序，效率高(索引树以及按照key进行排序，此时直接搜索)
+* 其他情况，是通过外文件排序`using filesort`，效率低 
 
 #### 4 group by
 
@@ -363,13 +363,21 @@ MySQL的存储引擎是一种**数据表存储和处理机制的实现**。不�
 
 优： 当数据量非常大时，遍历查询耗时，使用索引加速查询
 
+​		生成索引后，会按照索引将数据进行排序
+
+
+
 缺：索引也需要生成索引文件，使用索引需要访问索引文件，涉及io操作，因此索引数量需要合适
+
+* 索引只与where过滤的字段有关
 
 
 
 #### 2 分类
 
-物理：聚集索引、非聚集索引
+物理：聚集索引（Innodb的数据和索引放在一个文件内）
+
+​			非聚集索引（MyISAM的数据和索引分开存放）
 
 逻辑：一级索引：单列索引（主键索引primary kry、唯一索引unique）、联合索引
 
@@ -410,11 +418,96 @@ MySQL的存储引擎是一种**数据表存储和处理机制的实现**。不�
 
 
 
+### 5.3 B树
 
+1. 节点的大小通常等于一个磁盘块的大小，可存放300-500个索引
+2. 通常最多有三层，进行三次IO操作
 
+![image-20240411010616414](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240411010616414.png)
 
+* 当where过滤的字段并非索引字段：
+  * MyISAM: 此时只有.myd文件存储数据，对所有数据进行遍历
+  * Innodb：有.ibd文件，自动生成索引且存放数据，但是过滤字段并非索引，对整张表进行过滤
+* 当where过滤字段是索引字段：
+  * MyISAM：mysql_server识别到为索引字段 -> 从磁盘（.MYI文件）取出一个磁盘块（一个节点大小）放入内存 ->内存中构建B树（节点中的data存放的是数据的地址，通过地址在.MYD中寻找）-> 通过二分查找加速过滤寻找
+  * Innodb： 识别索引 -> 从Ibd文件中取出索引和数据放入内存 ->  内存中构建B树（data存放具体的数据）->二分查找
 
+| 存在问题(Inodb为例)                                          | q    |
+| ------------------------------------------------------------ | ---- |
+| 索引数据分散在不同的节点上，离根近则搜索快，导致磁盘IO次数不平均 |      |
+| 每一个非叶子节点需要存储data，占用过多的空间，从而导致B树较高 |      |
+| 不方便进行整表遍历和范围遍历                                 |      |
 
+### 5.4 B+树
+
+![image-20240411012040271](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240411012040271.png)
+
+| 改善                                                         | p    |
+| ------------------------------------------------------------ | ---- |
+| 非叶子节点只存放索引，不存放data，一个节点内存放的索引增加，B+树层数变低，IO次数变少 |      |
+| data全部存放在叶子节点上，保证每行的搜索时间平均             |      |
+| 将叶子节点串在链表中，形成有序链表，需要对data进行范围或整表遍历时，只需要遍历链表 |      |
+
+* MyISAM: 主键索引树和辅助索引树的data内均==存放数据==的地址
+
+### 5.5 辅助索引
+
+* 底层为B+树
+
+![image-20240411112707624](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240411112707624.png)
+
+* 主键索引 primary key
+
+​	存在主键索引时，则mysql server让内核在内存中构建主键索引树
+
+​	where过滤字段为主键索引，则二分查找快速定位，若非索引，则遍历搜索树的叶子节点链表
+
+| 索引类型          | 存储                                               |
+| ----------------- | -------------------------------------------------- |
+| 主键索引          | 叶子节点：主键uid    ；  叶子节点：data存放数据    |
+| 辅助索引/二级索引 | 叶子节点：索引age   ；  叶子节点： data存放主键uid |
+
+1. 辅助索引树内只有字段：主键 和 索引字段（uid，age）
+2. 若`select uid sex from user where age = 12;`需要==回表==，根据age 查到uid，从主键索引树查找data内的sex
+3. 为了减少回表带来的损耗，则select选择具体的字段值，不要使用*
+
+### 5.5 联合索引
+
+`select * from user where age = 20 order by name;`
+
+1. 若只添加age为辅助索引，虽然可以查找到对应的数据
+
+2. 通过name排序时，会using filesort外部排序，开销大
+
+3. 使用联合索引，将age和name均设为索引，索引树先按age排序，再按name排序
+
+4. 此时可以直接搜找data，无需using filesort
+
+### 5.6 自适应哈希索引
+
+![image-20240411133457805](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240411133457805.png)
+
+1. 哈希索引只能==等值查询==，无法使用排序、范围搜索等操作
+2. 只适合搜索在==内存==中的数据，无法减少IO操作
+3. 优化为Innodb的自适应哈希索引
+
+-----
+
+![image-20240411134225846](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240411134225846.png)
+
+* 当大量使用辅助索引树的时候，辅助索引->回表->关键索引->获取data数据
+* 在内存中优化，根据辅助索引树创建哈希表，直接通过哈希索引值得到data数据
+* 自适应哈希本身数据维护也是耗费性能，根据需求是否打开自适应哈希
+
+```mysql
+show engine innodb status\G
+1. 自适应哈希默认8个分区，可以查看等待线程的树木
+2 走自适应哈希索引搜索的频率 和 走二级索引树的搜索频率，觉得是否关闭
+```
+
+<img src="https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240411135757840.png" alt="image-20240411135757840" style="zoom:67%;" />
+
+   
 
 
 # n 面试题
