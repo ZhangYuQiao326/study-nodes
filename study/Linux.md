@@ -535,7 +535,7 @@ sudo apt install vim
 
   ```
   // 查看环境
-  conda 
+  conda info --env
   // 创建环境
   conda create --name pynlp python=3.10
   // 更新环境
