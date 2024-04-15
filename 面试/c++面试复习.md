@@ -229,14 +229,6 @@ operatpr delete 和 free 区别不大
 
 其余情况下，使用new[]申请，可以用delete ptr释放
 
-**2. malloc的底层实现**
-
-通过两个系统调用  brk mmap
-
-brk: 调整堆的末端，即将末端地址向高地址移动，增加堆的大小
-
-mmap：获取堆内的一块空间
-
 **2 虚拟地址空间**
 
 <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240313161217327.png" alt="image-20240313161217327" style="zoom:67%;" />
