@@ -792,10 +792,10 @@ int *p = arr;
 ### 7.5 函数指针
 
 * 详见高级编程
-
+格式为 返回类型 `(*指针变量名)(参数列表)`
 ```cpp
 int (*funcPtr)(int, int);
-
+void (*callback)(LoopAsync *async);
 ```
 
 ### 分辨
