@@ -346,31 +346,6 @@ list支持高效的增删改查
 
 
 
-# 网络
-
-## TCP
-
-* 运行在计算机上的进程通过端口号来区分，16bit标识，0~ 65535
-
-  | 类型 | UDP                              | TCP                    |
-  | ---- | -------------------------------- | ---------------------- |
-  |      | 支持一对一，一对多               | 一对一                 |
-  |      | 面向报文                         | 面向字节流             |
-  |      | 无连接                           | 面向链接               |
-  |      | 不安全                           | 安全                   |
-  |      | 向上层提供无连接、不可靠传输服务 | 面向连接的可靠传输服务 |
-  |      | 视频、会议等实时                 | 文件传输               |
-
-  
-
-![image-20240314183205222](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240314183205222.png)
-
-![image-20240328154625330](https://cdn.jsdelivr.net/gh/ZhangYuQiao326/study_nodes_pictures@main/img/image-20240328154625330.png)
-
-![image-20240314192809279](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240314192809279.png)
-
-
-
 # 操作系统
 
 **1 进程PCB和状态**

@@ -438,7 +438,7 @@ vm安装路径：“D:\VM\Ubuntu22”
 
 配置软件
 
-* 配置c++
+## 1 配置c++
 
 ```
 sudo apt update
@@ -455,44 +455,44 @@ sudo apt install cmake clang-12 gdb
 sudo apt install vim
 ```
 
-* 配置git
+## 2 配置git
 
-  ```
-  sudo apt install git
-  git config --global user.name "ZhangYuQiao326"
-  git config --global user.email "1347649631@qq.com"
-  
-  // 生成公私密钥（windows和linux下命令一致）
-  ssh-keygen -C "1347649631@qq.com" -t rsa
-  确认保存路径(/root/.ssh/id_rsa)(/c/Users/zhang/.ssh/id_rsa)
-  输入密码 123456
-  确认密码 123456
-  公钥位置：cat /root/.ssh/id_rsa.pub
-  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDSCb7oIEU6aheEz3z4iFjYQrfGLgMzx2jRliwqVUGOg+GDhbMjLLzfFdp8N7eJ3MYlS2byZaZE3qeYOdqROq3HZxV/eQBUiIBT/uk9vEa3P2YlaSWmSLb+T0ZO1UGfoH2+TG+zXlf92mc8o9N8oKTqysnFBeQaDtMSgw81N6AfoatMVqu0IgNDi6hEfmBx77uHc/ioum1ys0zTHgi9/2JcYdqJ+U7o395AIYKXfk2aI56WJLiUhR2GzDyIYu992fhaqfO0ptuG9EjoJscuIVURh6sStqnJHny0fLv0zhtBLNlaVdFUY3stdRiZAb1H58UwNmG+DpQB/sJjeek61ZhQ57KjXTcq4aGCIoIZPUx51CzdIm+lzPOkrFZzNiPsIcDe27xbK3h8zISzAele+p/nk5C/d7hyjt7touYOlOKhZgGmLHR4hXTmznY/7R5lGZqstuCQSfR6DNH/M094JSrhMvaAN5tq+LUbr8eSRBd1dIw8yVaxy7QjpReM/mn26O8= 1347649631@qq.com
-  
-  // 将公钥加入github网站
-  setting -> SSH and GPG keys
-  
-  // 创建初始化仓库
-  git init
-  // 验证连接成功
-  ssh -T git@github.com
-  
-  操作：
-  git clone xxxxx
-  切换分支
-  sudo git checkout --track origin/master
-  
-  
-  ```
+```
+sudo apt install git
+git config --global user.name "ZhangYuQiao326"
+git config --global user.email "1347649631@qq.com"
 
-* 配置ssh
+// 生成公私密钥（windows和linux下命令一致）
+ssh-keygen -C "1347649631@qq.com" -t rsa
+确认保存路径(/root/.ssh/id_rsa)(/c/Users/zhang/.ssh/id_rsa)
+输入密码 123456
+确认密码 123456
+公钥位置：cat /root/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDSCb7oIEU6aheEz3z4iFjYQrfGLgMzx2jRliwqVUGOg+GDhbMjLLzfFdp8N7eJ3MYlS2byZaZE3qeYOdqROq3HZxV/eQBUiIBT/uk9vEa3P2YlaSWmSLb+T0ZO1UGfoH2+TG+zXlf92mc8o9N8oKTqysnFBeQaDtMSgw81N6AfoatMVqu0IgNDi6hEfmBx77uHc/ioum1ys0zTHgi9/2JcYdqJ+U7o395AIYKXfk2aI56WJLiUhR2GzDyIYu992fhaqfO0ptuG9EjoJscuIVURh6sStqnJHny0fLv0zhtBLNlaVdFUY3stdRiZAb1H58UwNmG+DpQB/sJjeek61ZhQ57KjXTcq4aGCIoIZPUx51CzdIm+lzPOkrFZzNiPsIcDe27xbK3h8zISzAele+p/nk5C/d7hyjt7touYOlOKhZgGmLHR4hXTmznY/7R5lGZqstuCQSfR6DNH/M094JSrhMvaAN5tq+LUbr8eSRBd1dIw8yVaxy7QjpReM/mn26O8= 1347649631@qq.com
 
-  ```
-  sudo apt-get install openssh-server
-  用户名yuqiao@192.168.88.130
-  password 123456
-  ```
+// 将公钥加入github网站
+setting -> SSH and GPG keys
+
+// 创建初始化仓库
+git init
+// 验证连接成功
+ssh -T git@github.com
+
+操作：
+git clone xxxxx
+切换分支
+sudo git checkout --track origin/master
+
+
+```
+
+## 3 配置ssh
+
+```
+sudo apt-get install openssh-server
+用户名yuqiao@192.168.88.130
+password 123456
+```
 
 * 配置远程vscode
 
@@ -504,7 +504,36 @@ sudo apt install vim
 
   setting->language->app
 
-* 配置acconda
+免密登录vs
+
+  ```c
+// windows
+本地电脑打开CMD窗口，输入ssh-keygen -t rsa "这里任意输入"命令后默认回车生成RSA密钥对
+在本地电脑的C:\Users\[user_name]\.ssh\id_rsa.pub文件夹下可以查看到刚生成的RSA密钥对
+  ```
+
+  ![image-20231020113056050](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231020113056050.png)
+
+  ```c
+// linux
+在家（~）目录下创建.ssh目录:输入ssh-keygen -t rsa 
+将本地电脑生成的公钥文件id_rsa.pub通过xftp或者lrzsz上传到服务器的家目录 ~/.ssh/authorized_keys
+ 1    cd ~/.ssh
+2     cat ~/id_rsa.pub > ./.ssh/authorized_keys
+将公钥文件信息写入authorized_keys文件（cat命令使用>符号时，若文件不存在会自动创建。>代表覆盖，>>代表追加）
+    
+执行service sshd restart或者sudo service sshd restart重启sshd服务（如果服务器版本过高可能会要求使用systemctl restart sshd）
+同时，由于ssh不希望home目录以及~/.ssh目录对组有写权限，所以需要对目录进行权限更改。同时，ssh对于authorized_keys也有权限需求。
+
+  ```
+
+  ![image-20231020113147526](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231020113147526.png)
+
+  <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231020113211866.png" alt="image-20231020113211866" style="zoom:50%;" />
+
+  
+
+## 4 配置acconda
 
   1、上传下载好的Anaconda的sh包（/home/yuqiao/soft）
 
@@ -549,34 +578,9 @@ sudo apt install vim
   conda list
   ```
 
-  5. 免密登录
 
-  ```c
-  // windows
-  本地电脑打开CMD窗口，输入ssh-keygen -t rsa -C "这里任意输入"命令后默认回车生成RSA密钥对
-  在本地电脑的C:\Users\[user_name]\.ssh文件夹下可以查看到刚生成的RSA密钥对
-  ```
 
-  ![image-20231020113056050](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231020113056050.png)
-
-  ```c
-  // linux
-  在家（~）目录下创建.ssh目录（若存在，则忽略这一步）
-  将本地电脑生成的公钥文件id_rsa.pub通过xftp或者lrzsz上传到服务器的家目录 ~/.ssh
-   1    cd ~/.ssh
-  2     cat ~/id_rsa.pub > ./.ssh/authorized_keys
-  将公钥文件信息写入authorized_keys文件（cat命令使用>符号时，若文件不存在会自动创建。>代表覆盖，>>代表追加）
-      
-  执行service sshd restart或者sudo service sshd restart重启sshd服务（如果服务器版本过高可能会要求使用systemctl restart sshd）
-  同时，由于ssh不希望home目录以及~/.ssh目录对组有写权限，所以需要对目录进行权限更改。同时，ssh对于authorized_keys也有权限需求。
-  
-  ```
-
-  ![image-20231020113147526](C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231020113147526.png)
-
-  <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20231020113211866.png" alt="image-20231020113211866" style="zoom:50%;" />
-
-* 安装mysql
+## 5 安装mysql
 
 ```cpp
 //1
@@ -636,6 +640,34 @@ SELECT user, host FROM mysql.user;
 
 
 
+## 6 安装java11
+
+```shell
+sudo apt update
+sudo apt install openjdk-11-jdk
+
+# 环境变量
+sudo vim ~/.bashrc
+# 添加
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+
+# 更新
+source ~/.bashrc
+
+# 验证
+java -version
+
+openjdk version "11.0.25" 2024-10-15
+OpenJDK Runtime Environment (build 11.0.25+9-post-Ubuntu-1ubuntu120.04)
+OpenJDK 64-Bit Server VM (build 11.0.25+9-post-Ubuntu-1ubuntu120.04, mixed mode, sharing)
+
+```
+
+
+
 
 
 
@@ -657,4 +689,11 @@ conda config --remove-key channels
 ```
 
 
+
+```cpp
+ssh -p 50361 root@region-42.seetacloud.com  
+ssh -p 25763 root@connect.nmb1.seetacloud.com
+    g+BUPwvjBpFw
+    
+```
 
